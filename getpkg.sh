@@ -1,6 +1,7 @@
 #!/bin/sh
   oldgo=$GOPATH
   GOPATH=$(cd `dirname $0`; pwd)
+  GOBIN=$GOPATH/bin
 
   if [ ! -e bin/gvt ];then
       go get 'github.com/FiloSottile/gvt'
@@ -13,7 +14,7 @@
       cd ..
   fi
 
-  go get ./..
+  go get .
 
   GOPATH=$oldgo
 

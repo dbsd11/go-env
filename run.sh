@@ -1,7 +1,9 @@
 #!/bin/sh
-  GOPATH=$GOPATH:$(cd `dirname $0`; pwd)
-  cd src
+  oldgo=$GOPATH
+  GOPATH=$(cd `dirname $0`; pwd)
+  GOBIN=$GOPATH/bin
 
   go run $1
 
-  cd ..
+  GOPATH=$oldgo
+  GOBIN=$GOPATH/bin
